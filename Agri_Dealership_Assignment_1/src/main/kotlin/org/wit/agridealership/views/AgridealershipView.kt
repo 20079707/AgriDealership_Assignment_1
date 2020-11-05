@@ -1,7 +1,6 @@
 package org.wit.agridealership.views
 
 import org.wit.agridealership.models.AgridealershipJSONStore
-import org.wit.agridealership.models.AgridealershipMemStore
 import org.wit.agridealership.models.AgridealershipModel
 
 class AgridealershipView {
@@ -36,11 +35,13 @@ class AgridealershipView {
         println()
     }
 
-    fun filterAgridealerships(agridealerships : AgridealershipJSONStore) {
-        println("Filter All Tractors")
-        println()
-        agridealerships.logAll()
-        println()
+    fun filterAgridealerships(agridealerships: AgridealershipModel) {
+        if(agridealerships != null)
+            println("Tractor Details [ $agridealerships ]")
+
+        else
+            println("Tractor Not Found...")
+
     }
 
     fun showAgridealership(agridealership : AgridealershipModel) {
@@ -97,7 +98,7 @@ class AgridealershipView {
     fun getMake() : String {
         val strMake : String? // String to hold user input
         val searchMake : String // Long to hold converted id
-        print("Enter Make to Search/Update/Delete : ")
+        print("Enter Make to Search Makes : ")
         strMake = readLine()!! // String to hold user input
         searchMake = if (!strMake.isEmpty())
             strMake.toString()
@@ -108,7 +109,7 @@ class AgridealershipView {
     }
 
     fun getId() : Long {
-        var strId : String? // String to hold user inputv
+        var strId : String? // String to hold user input
         var searchId : Long // Long to hold converted id
         print("Enter id to Search/Update/Delete : ")
         strId = readLine()!!

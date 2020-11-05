@@ -74,9 +74,9 @@ class AgridealershipController {
     }
 
     fun filterTractors() {
-        agridealershipView.filterAgridealerships(agridealerships)
+        agridealershipView.listAgridealerships(agridealerships)
         val aAgridealership = searchMake(agridealershipView.getMake())!!
-        agridealershipView.showAgridealership(aAgridealership)
+        agridealershipView.filterAgridealerships(aAgridealership)
     }
 
     fun deleteTractor() {
@@ -105,8 +105,7 @@ class AgridealershipController {
     }
 
     fun searchMake(Make: String) : AgridealershipModel? {
-        var foundAgridealership = agridealerships.findMake(Make)
-        return foundAgridealership
+        return agridealerships.findMake(Make)
     }
 
     fun dummyData() {
