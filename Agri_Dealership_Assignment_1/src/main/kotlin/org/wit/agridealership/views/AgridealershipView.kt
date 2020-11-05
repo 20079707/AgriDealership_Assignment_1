@@ -16,7 +16,8 @@ class AgridealershipView {
         println(" 2. Update Tractor")
         println(" 3. List All Tractors")
         println(" 4. Search Tractors")
-        println(" 5. Delete Tractors")
+        println(" 5. Filter Tractors")
+        println(" 6. Delete Tractors")
         println("-1. Exit")
         println()
         print("Enter Option : ")
@@ -30,6 +31,13 @@ class AgridealershipView {
 
     fun listAgridealerships(agridealerships : AgridealershipJSONStore) {
         println("List All Tractors")
+        println()
+        agridealerships.logAll()
+        println()
+    }
+
+    fun filterAgridealerships(agridealerships : AgridealershipJSONStore) {
+        println("Filtered All Tractors")
         println()
         agridealerships.logAll()
         println()
@@ -84,6 +92,18 @@ class AgridealershipView {
             }
         }
         return false
+    }
+
+    fun getMake() : String {
+        var searchMake : String? // Long to hold converted id
+        print("Enter Make to Search/Update/Delete : ")
+        var strMake : String = readLine()!! // String to hold user input
+        searchMake = if (strMake.toString() != null && !strMake.isEmpty())
+            strMake.toString()
+        else
+            println("Tractor Not Found...").toString()
+
+        return searchMake
     }
 
     fun getId() : Long {
