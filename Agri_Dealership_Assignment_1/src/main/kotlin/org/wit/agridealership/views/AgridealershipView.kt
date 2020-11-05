@@ -37,7 +37,7 @@ class AgridealershipView {
     }
 
     fun filterAgridealerships(agridealerships : AgridealershipJSONStore) {
-        println("Filtered All Tractors")
+        println("Filter All Tractors")
         println()
         agridealerships.logAll()
         println()
@@ -67,10 +67,10 @@ class AgridealershipView {
 
     fun updateAgridealershipData(agridealership : AgridealershipModel) : Boolean {
 
-        var tempMake: String?
-        var tempModel: String?
-        var tempYear: String?
-        var tempPrice: String?
+        val tempMake: String?
+        val tempModel: String?
+        val tempYear: String?
+        val tempPrice: String?
 
         if (agridealership != null) {
             print("Enter a new Make for [ " + agridealership.Make + " ] : ")
@@ -95,10 +95,11 @@ class AgridealershipView {
     }
 
     fun getMake() : String {
-        var searchMake : String? // Long to hold converted id
+        val strMake : String? // String to hold user input
+        val searchMake : String // Long to hold converted id
         print("Enter Make to Search/Update/Delete : ")
-        var strMake : String = readLine()!! // String to hold user input
-        searchMake = if (strMake.toString() != null && !strMake.isEmpty())
+        strMake = readLine()!! // String to hold user input
+        searchMake = if (!strMake.isEmpty())
             strMake.toString()
         else
             println("Tractor Not Found...").toString()
@@ -107,7 +108,7 @@ class AgridealershipView {
     }
 
     fun getId() : Long {
-        var strId : String? // String to hold user input
+        var strId : String? // String to hold user inputv
         var searchId : Long // Long to hold converted id
         print("Enter id to Search/Update/Delete : ")
         strId = readLine()!!
