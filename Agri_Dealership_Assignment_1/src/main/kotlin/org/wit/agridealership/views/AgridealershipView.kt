@@ -91,11 +91,11 @@ class AgridealershipView {
     }
 
     fun getMake(): String? {
-        print("Enter Make to Search Makes : ")
+        print("Enter Make to Filter Makes : ")
         val tractorMake : String? = readLine()!!// String to hold user input
 
-        if (tractorMake != null)
-            return tractorMake
+        if (tractorMake.toString() != null)
+            return tractorMake.toString()
 
         else
             -9
