@@ -97,6 +97,10 @@ class AgridealershipController {
         return foundAgridealership
     }
 
+    fun searchMake(Make: String) : AgridealershipModel? {
+        return agridealerships.findMake(Make)
+    }
+
     fun dummyData() {
         agridealerships.create(AgridealershipModel(Make = "John Deere", Model = "6190R",  Year = "2014", Price = "70.000"
         ))
