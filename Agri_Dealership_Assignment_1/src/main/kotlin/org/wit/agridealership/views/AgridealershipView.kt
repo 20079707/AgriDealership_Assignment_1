@@ -1,5 +1,6 @@
 package org.wit.agridealership.views
 
+import com.github.mm.coloredconsole.colored
 import org.wit.agridealership.models.AgridealershipJSONStore
 import org.wit.agridealership.models.AgridealershipMemStore
 import org.wit.agridealership.models.AgridealershipModel
@@ -8,26 +9,28 @@ class AgridealershipView {
 
     fun menu() : Int {
 
-        var option : Int
+        var option: Int
         var input: String?
 
-        println("MAIN MENU")
-        println(" 1. Add Tractor")
-        println(" 2. Update Tractor")
-        println(" 3. List All Tractors")
-        println(" 4. Search Tractors")
-        println(" 5. Delete Tractors")
-        println("-1. Exit")
-        println()
-        print("Enter Option : ")
-        input = readLine()!!
-        option = if (input.toIntOrNull() != null && !input.isEmpty())
-            input.toInt()
-        else
-            -9
-        return option
-    }
+        colored {
+            println("MAIN MENU".green.bold)
+            println(" 1. Add Tractor".yellow.bold)
+            println(" 2. Update Tractor".red.bold)
+            println(" 3. List All Tractors".purple.bold)
+            println(" 4. Search Tractors".blue.bold)
+            println(" 5. Delete Tractors".cyan.bold)
+            println("-1. Exit".white.bold)
+            println()
+            print("Enter Option : ".black.bold.italic)
+        }
+            input = readLine()!!
+            option = if (input.toIntOrNull() != null && !input.isEmpty())
+                input.toInt()
+            else
+                -9
+            return option
 
+    }
     fun listAgridealerships(agridealerships : AgridealershipJSONStore) {
         println("List All Tractors")
         println()
