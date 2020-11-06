@@ -35,15 +35,6 @@ class AgridealershipView {
         println()
     }
 
-    fun filterAgridealerships(agridealerships: AgridealershipModel) {
-        if(agridealerships != null)
-            println("Tractor Details [ $agridealerships ]")
-
-        else
-            println("Tractor Not Found...")
-
-    }
-
     fun showAgridealership(agridealership : AgridealershipModel) {
         if(agridealership != null)
             println("Tractor Details [ $agridealership ]")
@@ -95,17 +86,18 @@ class AgridealershipView {
         return false
     }
 
-    fun getMake() : String {
-        val strMake : String? // String to hold user input
-        val searchMake : String // Long to hold converted id
+    fun getMake(): String? {
         print("Enter Make to Search Makes : ")
-        strMake = readLine()!! // String to hold user input
-        searchMake = if (!strMake.isEmpty())
-            strMake.toString()
-        else
-            println("Tractor Not Found...").toString()
+        val tractorMake : String? = readLine()!!// String to hold user input
 
-        return searchMake
+        if (tractorMake != null)
+           return tractorMake
+
+        else
+            -9
+
+        return println("Tractor Not Found...").toString()
+
     }
 
     fun getId() : Long {

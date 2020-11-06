@@ -29,5 +29,4 @@ class ListAgridealershipScreen : View("List Agridealerships") {
             }
         }
     }
-
 }

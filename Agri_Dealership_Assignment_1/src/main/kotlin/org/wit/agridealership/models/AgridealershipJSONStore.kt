@@ -38,8 +38,7 @@ class AgridealershipJSONStore : AgridealershipStore {
     }
 
     override fun findMake(Make: String) : AgridealershipModel? {
-        var foundAgridealership: AgridealershipModel? = agridealerships.find { p -> p.Make == Make }
-        return foundAgridealership
+            return agridealerships.find { p -> p.Make == Make }
     }
 
     override fun create(agridealership: AgridealershipModel) {

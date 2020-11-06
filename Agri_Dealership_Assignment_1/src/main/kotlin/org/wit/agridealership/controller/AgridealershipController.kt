@@ -58,7 +58,7 @@ class AgridealershipController {
 
         agridealershipView.listAgridealerships(agridealerships)
         var searchId = agridealershipView.getId()
-        val aAgridealership = search(searchId)
+        val aAgridealership = searchId(searchId)
 
         if(aAgridealership != null) {
             if(agridealershipView.updateAgridealershipData(aAgridealership)) {
@@ -74,15 +74,14 @@ class AgridealershipController {
     }
 
     fun filterTractors() {
-        agridealershipView.listAgridealerships(agridealerships)
-        val aAgridealership = searchMake(agridealershipView.getMake())!!
-        agridealershipView.filterAgridealerships(aAgridealership)
+        val aAgridealership = agridealershipView.getMake()?.let { searchMake(it) }!!
+        agridealershipView.showAgridealership(aAgridealership)
     }
 
     fun deleteTractor() {
         agridealershipView.listAgridealerships(agridealerships)
         var searchId = agridealershipView.getId()
-        val aAgridealership = search(searchId)
+        val aAgridealership = searchId(searchId)
 
         if(aAgridealership != null) {
             agridealerships.delete(aAgridealership)
@@ -94,16 +93,13 @@ class AgridealershipController {
     }
 
     fun searchTractors() {
-        val aAgridealership = search(agridealershipView.getId())!!
+        val aAgridealership = searchId(agridealershipView.getId())!!
         agridealershipView.showAgridealership(aAgridealership)
     }
 
-
-    fun search(id: Long) : AgridealershipModel? {
-        var foundAgridealership = agridealerships.findOne(id)
-        return foundAgridealership
+    fun searchId(id: Long) : AgridealershipModel? {
+        return agridealerships.findOne(id)
     }
-
     fun searchMake(Make: String) : AgridealershipModel? {
         return agridealerships.findMake(Make)
     }
