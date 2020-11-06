@@ -90,6 +90,20 @@ class AgridealershipView {
         return false
     }
 
+    fun getMake(): String? {
+        print("Enter Make to Search Makes : ")
+        val tractorMake : String? = readLine()!!// String to hold user input
+
+        if (tractorMake != null)
+            return tractorMake
+
+        else
+            -9
+
+        return println("Tractor Not Found...").toString()
+
+    }
+
     fun getId() : Long {
         var strId : String? // String to hold user input
         var searchId : Long // Long to hold converted id
