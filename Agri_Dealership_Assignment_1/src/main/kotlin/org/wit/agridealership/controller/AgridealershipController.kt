@@ -28,7 +28,8 @@ class AgridealershipController {
                 2 -> updateTractor()
                 3 -> listTractors()
                 4 -> searchTractors()
-                5 -> deleteTractor()
+                5 -> filterTractors()
+                6 -> deleteTractor()
                 -99 -> dummyData()
                 -1 -> println("Exiting App")
                 else -> println("Invalid Option")
@@ -70,6 +71,11 @@ class AgridealershipController {
         }
         else
             println("Tractor Not Updated...")
+    }
+
+    fun filterTractors() {
+        val aAgridealership = agridealershipView.getMake()?.let { searchMake(it) }!!
+        agridealershipView.showAgridealership(aAgridealership)
     }
 
     fun deleteTractor() {
